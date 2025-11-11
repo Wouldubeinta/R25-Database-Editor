@@ -53,7 +53,11 @@ namespace R25_Database_Editor
             SecondaryColour_button.BackColor = Color.FromArgb(Global.team[Team_Index].secondaryColour.r, Global.team[Team_Index].secondaryColour.g, Global.team[Team_Index].secondaryColour.b);
             HudTextColour_button.BackColor = Color.FromArgb(Global.team[Team_Index].hudTextColour.r, Global.team[Team_Index].hudTextColour.g, Global.team[Team_Index].hudTextColour.b);
 
+            Logo_comboBox.Items.AddRange(StringArrays.Logos);
             Logo_comboBox.Text = Global.team[Team_Index].logo;
+
+            WorldCupLogo_comboBox.Items.AddRange(StringArrays.Logos);
+            WorldCupLogo_comboBox.Text = Global.team[Team_Index].wcLogo;
 
             string Logo = Global.currentPath + @"\Logos\" + Global.team[Team_Index].logo + ".pc.png";
 
@@ -458,8 +462,8 @@ namespace R25_Database_Editor
             Global.team[Team_Index].logoSize = Convert.ToByte(Logo_comboBox.Text.Length);
             Global.team[Team_Index].logo = Logo_comboBox.Text;
 
-            Global.team[Team_Index].wcLogoSize = Convert.ToByte(Logo_comboBox.Text.Length);
-            Global.team[Team_Index].wcLogo = Logo_comboBox.Text;
+            Global.team[Team_Index].wcLogoSize = Convert.ToByte(WorldCupLogo_comboBox.Text.Length);
+            Global.team[Team_Index].wcLogo = WorldCupLogo_comboBox.Text;
 
             Global.team[Team_Index].isCommentaryTeamHash = true;
 

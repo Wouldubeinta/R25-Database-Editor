@@ -192,24 +192,63 @@ namespace R25_Database_Editor
         {
             Global.player[Player_Index].playerEnabled = Enabled_checkBox.Checked;
 
+            Global.player[Player_Index].id = Convert.ToInt32(PlayerId_textBox.Text);
+
+            Global.player[Player_Index].firstNameSize = Convert.ToByte(FirstName_textBox.Text.Length);
+            Global.player[Player_Index].firstName = FirstName_textBox.Text;
+
+            Global.player[Player_Index].lastNameSize = Convert.ToByte(LastName_textBox.Text.Length);
+            Global.player[Player_Index].lastName = LastName_textBox.Text;
+
             Global.player[Player_Index].isLicensed = true;
             Global.player[Player_Index].licensed = Licensed_checkBox.Checked;
 
-            Global.player[Player_Index].id = Convert.ToInt32(PlayerId_textBox.Text);
+            Global.player[Player_Index].jerseyNameSize = Convert.ToByte(JerseyName_textBox.Text.Length);
+            Global.player[Player_Index].jerseyName = JerseyName_textBox.Text;
 
-            Global.player[Player_Index].isPreferredHand = true;
-            Global.player[Player_Index].preferredHand = Convert.ToByte(PreferredHand_comboBox.SelectedIndex);
-            Global.player[Player_Index].isPreferredFoot = true;
-            Global.player[Player_Index].preferredFoot = Convert.ToByte(PreferredFoot_comboBox.SelectedIndex);
+            Global.player[Player_Index].jerseyNumber = Convert.ToInt32(JerseyNumber_numericUpDown.Value);
 
             Global.player[Player_Index].dob.day = Convert.ToInt32(Day_numericUpDown.Value);
             Global.player[Player_Index].dob.month = Convert.ToInt32(Month_numericUpDown.Value);
             Global.player[Player_Index].dob.year = Convert.ToInt32(Year_numericUpDown.Value);
 
-            Global.player[Player_Index].firstNameSize = Convert.ToByte(FirstName_textBox.Text.Length);
-            Global.player[Player_Index].firstName = FirstName_textBox.Text;
-            Global.player[Player_Index].lastNameSize = Convert.ToByte(LastName_textBox.Text.Length);
-            Global.player[Player_Index].lastName = LastName_textBox.Text;
+            Global.player[Player_Index].isAge = true;
+
+            DateTime dateOfBirth = new DateTime(Convert.ToInt32(Year_numericUpDown.Value), Convert.ToInt32(Month_numericUpDown.Value), Convert.ToInt32(Day_numericUpDown.Value));
+
+            DateTime today = DateTime.Today;
+            int age = today.Year - dateOfBirth.Year;
+
+            // Adjust age if the birthday has not yet occurred this year
+            if (dateOfBirth.Date > today.AddYears(-age))
+                age--;
+
+            Global.player[Player_Index].age = age;
+
+            Global.player[Player_Index].isCountryOfBirth = true;
+            Global.player[Player_Index].countryOfBirth = CountryOfBirth_comboBox.SelectedIndex;
+
+            Global.player[Player_Index].isRepCountry = true;
+            Global.player[Player_Index].repCountry = RepresentativeCountry_comboBox.SelectedIndex;
+
+            Global.player[Player_Index].isWorldCup = true;
+            Global.player[Player_Index].WorldCup = isWordCup_checkBox.Checked;
+
+            Global.player[Player_Index].isContractExpiry = true;
+
+            if (ContractExpiry_comboBox.SelectedIndex != 26)
+                Global.player[Player_Index].contractExpiry = Convert.ToInt32(ContractExpiry_comboBox.Text);
+            else
+                Global.player[Player_Index].contractExpiry = 0;
+
+            Global.player[Player_Index].isPrimaryRole = true;
+            Global.player[Player_Index].primaryRole = SearchID.RolesIndex(PrimaryRole_comboBox.Text);
+
+            Global.player[Player_Index].isSecondaryRole = true;
+            Global.player[Player_Index].secondaryRole = SearchID.RolesIndex(SecondaryRole_comboBox.Text);
+
+            Global.player[Player_Index].isTertiaryRole = true;
+            Global.player[Player_Index].tertiaryRole = SearchID.RolesIndex(TertiaryRole_comboBox.Text);
 
             Global.player[Player_Index].isCommentaryNameHash = true;
 
@@ -219,26 +258,11 @@ namespace R25_Database_Editor
                 Global.player[Player_Index].commentaryNameHash = commNameHash;
             }
 
-            Global.player[Player_Index].isWorldCup = true;
-            Global.player[Player_Index].WorldCup = isWordCup_checkBox.Checked;
+            Global.player[Player_Index].isPreferredHand = true;
+            Global.player[Player_Index].preferredHand = Convert.ToByte(PreferredHand_comboBox.SelectedIndex);
 
-            Global.player[Player_Index].jerseyNameSize = Convert.ToByte(JerseyName_textBox.Text.Length);
-            Global.player[Player_Index].jerseyName = JerseyName_textBox.Text;
-
-            Global.player[Player_Index].jerseyNumber = Convert.ToInt32(JerseyNumber_numericUpDown.Value);
-
-            Global.player[Player_Index].isPrimaryRole = true;
-            Global.player[Player_Index].primaryRole = SearchID.RolesIndex(PrimaryRole_comboBox.Text);
-            Global.player[Player_Index].isSecondaryRole = true;
-            Global.player[Player_Index].secondaryRole = SearchID.RolesIndex(SecondaryRole_comboBox.Text);
-            Global.player[Player_Index].isTertiaryRole = true;
-            Global.player[Player_Index].tertiaryRole = SearchID.RolesIndex(TertiaryRole_comboBox.Text);
-
-            Global.player[Player_Index].isCountryOfBirth = true;
-            Global.player[Player_Index].countryOfBirth = CountryOfBirth_comboBox.SelectedIndex;
-
-            Global.player[Player_Index].isRepCountry = true;
-            Global.player[Player_Index].repCountry = RepresentativeCountry_comboBox.SelectedIndex;
+            Global.player[Player_Index].isPreferredFoot = true;
+            Global.player[Player_Index].preferredFoot = Convert.ToByte(PreferredFoot_comboBox.SelectedIndex);
 
             Global.player[Player_Index].appearance.height = Convert.ToInt32(Height_numericUpDown.Value);
             Global.player[Player_Index].appearance.weight = Convert.ToInt32(Weight_numericUpDown.Value);
@@ -298,8 +322,7 @@ namespace R25_Database_Editor
             Global.player[Player_Index].skills.mentalitySkills.determination = Convert.ToInt32(Determination_numericUpDown.Value);
             Global.player[Player_Index].skills.mentalitySkills.discipline = Convert.ToInt32(Discipline_numericUpDown.Value);
 
-
-
+            // Player Stats - Not sure if this is used in Rugby 25
             if (UnionMatchEnabled_checkBox.Checked)
             {
                 Global.player[Player_Index].unionMatchStats.isStatisticsStats = true;
@@ -370,16 +393,11 @@ namespace R25_Database_Editor
                 Global.player[Player_Index].unionMatchStats.tries = Convert.ToInt32(Tries_numericUpDown.Value);
                 Global.player[Player_Index].unionMatchStats.isTryAssists = true;
                 Global.player[Player_Index].unionMatchStats.tryAssists = Convert.ToInt32(TryAssists_numericUpDown.Value);
+                Global.player[Player_Index].unionMatchStats.isBonusTries = true;
+                Global.player[Player_Index].unionMatchStats.bonusTries = Convert.ToInt32(BonusTries_numericUpDown.Value);
             }
             else
                 Global.player[Player_Index].unionMatchStats.isStatisticsStats = false;
-
-            Global.player[Player_Index].isContractExpiry = true;
-
-            if (ContractExpiry_comboBox.SelectedIndex != 26)
-                Global.player[Player_Index].contractExpiry = Convert.ToInt32(ContractExpiry_comboBox.Text);
-            else
-                Global.player[Player_Index].contractExpiry = 0;
 
             int playerRating = Rating.PlayerRating(Player_Index);
 

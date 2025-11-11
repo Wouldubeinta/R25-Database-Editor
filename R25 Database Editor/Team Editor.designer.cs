@@ -90,6 +90,8 @@ namespace R25_Database_Editor
             JerseySelection_comboBox = new ComboBox();
             JerseyName_textBox = new TextBox();
             Identity_tabPage = new TabPage();
+            WorldCupLogo_comboBox = new ComboBox();
+            WorldCupLogo_label = new Label();
             shirtName_textBox = new TextBox();
             TeamGender_textBox = new TextBox();
             nickname_textBox = new TextBox();
@@ -730,6 +732,8 @@ namespace R25_Database_Editor
             // Identity_tabPage
             // 
             Identity_tabPage.BackColor = Color.Gainsboro;
+            Identity_tabPage.Controls.Add(WorldCupLogo_comboBox);
+            Identity_tabPage.Controls.Add(WorldCupLogo_label);
             Identity_tabPage.Controls.Add(shirtName_textBox);
             Identity_tabPage.Controls.Add(TeamGender_textBox);
             Identity_tabPage.Controls.Add(CustomName_textBox);
@@ -777,9 +781,27 @@ namespace R25_Database_Editor
             Identity_tabPage.TabIndex = 0;
             Identity_tabPage.Text = "Identity";
             // 
+            // WorldCupLogo_comboBox
+            // 
+            WorldCupLogo_comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            WorldCupLogo_comboBox.FormattingEnabled = true;
+            WorldCupLogo_comboBox.Location = new Point(135, 364);
+            WorldCupLogo_comboBox.Name = "WorldCupLogo_comboBox";
+            WorldCupLogo_comboBox.Size = new Size(253, 23);
+            WorldCupLogo_comboBox.TabIndex = 166;
+            // 
+            // WorldCupLogo_label
+            // 
+            WorldCupLogo_label.AutoSize = true;
+            WorldCupLogo_label.Location = new Point(35, 368);
+            WorldCupLogo_label.Name = "WorldCupLogo_label";
+            WorldCupLogo_label.Size = new Size(97, 15);
+            WorldCupLogo_label.TabIndex = 165;
+            WorldCupLogo_label.Text = "World Cup Logo:";
+            // 
             // shirtName_textBox
             // 
-            shirtName_textBox.Location = new Point(135, 270);
+            shirtName_textBox.Location = new Point(135, 241);
             shirtName_textBox.MaxLength = 16;
             shirtName_textBox.Name = "shirtName_textBox";
             shirtName_textBox.Size = new Size(253, 23);
@@ -787,7 +809,7 @@ namespace R25_Database_Editor
             // 
             // TeamGender_textBox
             // 
-            TeamGender_textBox.Location = new Point(135, 116);
+            TeamGender_textBox.Location = new Point(135, 87);
             TeamGender_textBox.MaxLength = 6;
             TeamGender_textBox.Name = "TeamGender_textBox";
             TeamGender_textBox.ReadOnly = true;
@@ -796,7 +818,7 @@ namespace R25_Database_Editor
             // 
             // nickname_textBox
             // 
-            nickname_textBox.Location = new Point(135, 208);
+            nickname_textBox.Location = new Point(135, 179);
             nickname_textBox.MaxLength = 19;
             nickname_textBox.Name = "nickname_textBox";
             nickname_textBox.Size = new Size(253, 23);
@@ -804,7 +826,7 @@ namespace R25_Database_Editor
             // 
             // TeamID_textBox
             // 
-            TeamID_textBox.Location = new Point(135, 85);
+            TeamID_textBox.Location = new Point(135, 56);
             TeamID_textBox.MaxLength = 3;
             TeamID_textBox.Name = "TeamID_textBox";
             TeamID_textBox.Size = new Size(253, 23);
@@ -812,7 +834,7 @@ namespace R25_Database_Editor
             // 
             // TeamIndex_textBox
             // 
-            TeamIndex_textBox.Location = new Point(135, 54);
+            TeamIndex_textBox.Location = new Point(135, 25);
             TeamIndex_textBox.MaxLength = 3;
             TeamIndex_textBox.Name = "TeamIndex_textBox";
             TeamIndex_textBox.ReadOnly = true;
@@ -821,7 +843,7 @@ namespace R25_Database_Editor
             // 
             // hudName_textBox
             // 
-            hudName_textBox.Location = new Point(135, 239);
+            hudName_textBox.Location = new Point(135, 210);
             hudName_textBox.MaxLength = 4;
             hudName_textBox.Name = "hudName_textBox";
             hudName_textBox.Size = new Size(253, 23);
@@ -829,7 +851,7 @@ namespace R25_Database_Editor
             // 
             // shortName_textBox
             // 
-            shortName_textBox.Location = new Point(135, 178);
+            shortName_textBox.Location = new Point(135, 149);
             shortName_textBox.MaxLength = 22;
             shortName_textBox.Name = "shortName_textBox";
             shortName_textBox.Size = new Size(253, 23);
@@ -837,7 +859,7 @@ namespace R25_Database_Editor
             // 
             // Fullname_textBox
             // 
-            Fullname_textBox.Location = new Point(135, 147);
+            Fullname_textBox.Location = new Point(135, 118);
             Fullname_textBox.MaxLength = 44;
             Fullname_textBox.Name = "Fullname_textBox";
             Fullname_textBox.Size = new Size(253, 23);
@@ -846,7 +868,7 @@ namespace R25_Database_Editor
             // shirtName_label
             // 
             shirtName_label.AutoSize = true;
-            shirtName_label.Location = new Point(63, 275);
+            shirtName_label.Location = new Point(63, 246);
             shirtName_label.Name = "shirtName_label";
             shirtName_label.Size = new Size(69, 15);
             shirtName_label.TabIndex = 163;
@@ -856,7 +878,7 @@ namespace R25_Database_Editor
             // 
             Affiliations_comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             Affiliations_comboBox.FormattingEnabled = true;
-            Affiliations_comboBox.Location = new Point(135, 332);
+            Affiliations_comboBox.Location = new Point(135, 303);
             Affiliations_comboBox.Name = "Affiliations_comboBox";
             Affiliations_comboBox.Size = new Size(253, 23);
             Affiliations_comboBox.TabIndex = 162;
@@ -865,7 +887,7 @@ namespace R25_Database_Editor
             // 
             isTeamEnabled_checkBox.AutoSize = true;
             isTeamEnabled_checkBox.CheckAlign = ContentAlignment.MiddleRight;
-            isTeamEnabled_checkBox.Location = new Point(135, 21);
+            isTeamEnabled_checkBox.Location = new Point(484, 363);
             isTeamEnabled_checkBox.Name = "isTeamEnabled_checkBox";
             isTeamEnabled_checkBox.Size = new Size(111, 19);
             isTeamEnabled_checkBox.TabIndex = 161;
@@ -886,7 +908,7 @@ namespace R25_Database_Editor
             // TeamGender_label
             // 
             TeamGender_label.AutoSize = true;
-            TeamGender_label.Location = new Point(85, 121);
+            TeamGender_label.Location = new Point(85, 92);
             TeamGender_label.Name = "TeamGender_label";
             TeamGender_label.Size = new Size(48, 15);
             TeamGender_label.TabIndex = 155;
@@ -894,7 +916,7 @@ namespace R25_Database_Editor
             // 
             // TeamGenderImage_label
             // 
-            TeamGenderImage_label.Location = new Point(206, 116);
+            TeamGenderImage_label.Location = new Point(206, 87);
             TeamGenderImage_label.Name = "TeamGenderImage_label";
             TeamGenderImage_label.Size = new Size(22, 20);
             TeamGenderImage_label.TabIndex = 157;
@@ -956,7 +978,7 @@ namespace R25_Database_Editor
             // ClubName_label
             // 
             ClubName_label.AutoSize = true;
-            ClubName_label.Location = new Point(68, 212);
+            ClubName_label.Location = new Point(68, 183);
             ClubName_label.Name = "ClubName_label";
             ClubName_label.Size = new Size(64, 15);
             ClubName_label.TabIndex = 79;
@@ -1002,7 +1024,7 @@ namespace R25_Database_Editor
             // Affiliations_label
             // 
             Affiliations_label.AutoSize = true;
-            Affiliations_label.Location = new Point(66, 336);
+            Affiliations_label.Location = new Point(66, 307);
             Affiliations_label.Name = "Affiliations_label";
             Affiliations_label.Size = new Size(67, 15);
             Affiliations_label.TabIndex = 71;
@@ -1013,7 +1035,7 @@ namespace R25_Database_Editor
             TeamType_comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             TeamType_comboBox.FormattingEnabled = true;
             TeamType_comboBox.Items.AddRange(new object[] { "Domestic", "International" });
-            TeamType_comboBox.Location = new Point(135, 301);
+            TeamType_comboBox.Location = new Point(135, 272);
             TeamType_comboBox.Name = "TeamType_comboBox";
             TeamType_comboBox.Size = new Size(253, 23);
             TeamType_comboBox.TabIndex = 70;
@@ -1021,7 +1043,7 @@ namespace R25_Database_Editor
             // TeamType_label
             // 
             TeamType_label.AutoSize = true;
-            TeamType_label.Location = new Point(98, 305);
+            TeamType_label.Location = new Point(98, 276);
             TeamType_label.Name = "TeamType_label";
             TeamType_label.Size = new Size(35, 15);
             TeamType_label.TabIndex = 69;
@@ -1040,7 +1062,7 @@ namespace R25_Database_Editor
             // TeamID_label
             // 
             TeamID_label.AutoSize = true;
-            TeamID_label.Location = new Point(111, 89);
+            TeamID_label.Location = new Point(111, 60);
             TeamID_label.Name = "TeamID_label";
             TeamID_label.Size = new Size(21, 15);
             TeamID_label.TabIndex = 16;
@@ -1068,8 +1090,7 @@ namespace R25_Database_Editor
             // 
             Logo_comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             Logo_comboBox.FormattingEnabled = true;
-            Logo_comboBox.Items.AddRange(new object[] { "ban_bangladesh_amatuers", "ban_chhatak", "ban_dinajpur", "ban_flame_boys", "ban_jbrc", "ban_kurigram", "ban_magura", "ban_narail", "ban_national", "ban_ogrojatra", "ban_satkhira", "ban_sha_academy", "bel_asab", "bel_bofferdring", "bel_boitsfort", "bel_coq_mosan", "bel_dendermonde", "bel_frameries", "bel_la_hulpe", "bel_leuven", "bel_liege", "bel_rc9_huesden", "bel_roc", "bel_royal_kituro", "bel_soignies", "bra_charrua", "bra_curitibia", "bra_desterro", "bra_farrapos", "bra_jacarei", "bra_jaoca", "bra_niteroi", "bra_pasteur", "bra_piracicaba", "bra_poli", "bra_sanjose", "bra_saopaulo", "bra_spac", "bra_tornados", "bra_verrmelho", "club_brazil_cobras", "club_brussel_devils", "club_cafeteros", "club_lusitanos", "club_namibia_welwitschias", "club_netherlands_delta", "club_selknam", "club_telaviv", "club_zimbawe_goshawks", "custom", "cus_01", "cus_02", "cus_03", "cus_04", "cus_05", "cus_06", "cus_07", "cus_08", "cus_09", "cus_10", "cus_11", "cus_12", "cus_13", "cus_14", "cus_15", "cus_16", "cus_17", "cus_18", "cus_19", "cus_20", "cus_21", "cus_22", "cus_23", "cus_24", "cus_25", "cus_26", "cus_27", "cus_28", "cus_29", "cus_30", "cus_31", "cus_32", "cus_33", "cus_34", "cus_35", "cus_36", "cus_37", "cus_38", "cus_39", "cus_40", "cus_42", "cus_43", "cus_44", "cus_47", "cus_48", "cus_49", "cus_51", "cus_52", "cus_53", "cus_54", "cus_55", "cus_56", "cus_57", "cus_58", "cus_59", "cus_60", "cus_61", "cus_62", "cus_63", "cus_64", "cus_65", "cus_66", "cus_67", "cus_68", "cus_69", "cus_70", "cus_71", "cus_72", "cus_73", "cus_74", "cus_75", "cus_76", "cus_78", "cus_79", "cus_80", "epr_bath", "epr_bristol", "epr_exeter", "epr_gloucester", "epr_harlequins", "epr_leicester", "epr_newcastle", "epr_northampton", "epr_sale", "epr_saracens", "int_algeria", "int_american_samoa", "int_andorra", "int_argentina", "int_armenia", "int_aruba", "int_australia", "int_australia_w", "int_austria", "int_bahamas", "int_bangladesh", "int_barbados", "int_belarus", "int_belgium", "int_belgium_team", "int_bermuda", "int_bolivia", "int_bonaire", "int_bosnia_herzegovina", "int_botswana", "int_brazil", "int_brazil_2", "int_brazil_2_w", "int_brazil_cobras", "int_brazil_super12", "int_brunei", "int_brussels_devisl", "int_bulgaria", "int_burkino_faso", "int_burundi", "int_bvi", "int_cameroon", "int_canada", "int_central_african_republic", "int_chile", "int_chile_condores", "int_chile_selknam", "int_china", "int_chinese_taipai", "int_columbia", "int_columbia_2", "int_croatia", "int_curacao", "int_cyprus", "int_czechia", "int_denmark", "int_dr_congo", "int_egypt", "int_el_salvador", "int_england", "int_estonia", "int_eswatini", "int_eswatini_2", "int_fiji", "int_finland", "int_france", "int_georgia", "int_germany", "int_germany_2", "int_grenada", "int_guam", "int_guatemala", "int_guyana", "int_honduras", "int_hongkong", "int_iceland", "int_india", "int_indonesia", "int_iraq", "int_ireland", "int_isleofman", "int_israel", "int_israel_telaviv", "int_italy", "int_ivory_coast", "int_ivory_coast_2", "int_jamaica", "int_japan", "int_kazakhstan", "int_kenya", "int_kiribati", "int_korea", "int_kyrgyzstan", "int_laos", "int_latvia", "int_lebanon", "int_lebanon_phoenix", "int_lesotho", "int_libya", "int_liechtenstein", "int_lithuania", "int_luxembourg", "int_macau", "int_madagascar", "int_malawi", "int_malawi_2", "int_malaysia", "int_mali", "int_mali_team", "int_malta", "int_mauritania", "int_mauritius", "int_mexico", "int_moldova", "int_mongolia", "int_montenegro", "int_montenegro_2", "int_morocco", "int_mozambique", "int_namibia", "int_namibia_welwitschias", "int_nauru", "int_nepal", "int_netherlands", "int_netherlands_delta", "int_new_zealand", "int_nicaragua", "int_niger", "int_nigeria", "int_niue_island", "int_norway", "int_nz_black_ferns", "int_oman", "int_pakistan", "int_palestine", "int_panama", "int_paraguay", "int_peru", "int_philippines", "int_png", "int_poland", "int_portugal", "int_portugal_national", "int_puerto_rico", "int_qatar", "int_romania", "int_russia", "int_rwanda", "int_samoa_men", "int_samoa_under15s", "int_samoa_women", "int_sanmarino", "int_saudi_arabia", "int_scotland", "int_senegal", "int_serbia", "int_seychelles", "int_sierra_leone", "int_singapore", "int_slovenia", "int_solomon_islands", "int_southsudan", "int_south_africa", "int_spain", "int_srilanka", "int_st_barthelemy", "int_st_vincent", "int_sudan", "int_sudan_rugby", "int_sweden", "int_switzerland", "int_tahiti", "int_tanzania", "int_thailand", "int_tonga", "int_trinidad", "int_turkey", "int_turkey_union", "int_turks_caicos", "int_tuvali", "int_uganda", "int_uraguay", "int_uraguay_superuru", "int_usa", "int_uzbekistan", "int_venezuela", "int_wales", "int_zambia", "int_zimbawe", "int_zimbawe_goshawks", "int_zimbawe_rugby", "ml_anthemrc", "ml_chicagohounds", "ml_dallasjackals", "ml_houstonsabercats", "ml_la", "ml_miamisharks", "ml_nefreejacks", "ml_nola_gold", "ml_oldglory", "ml_sandiegolegion", "ml_seattleseawolves", "ml_utahwarriors", "pol_bialystok", "pol_budowlani", "pol_budownali_lubin", "pol_buldo_calosc", "pol_gwiazdki", "pol_juvenia_krakow", "pol_lechia", "pol_ogniwo", "pol_orkan_sochaczew", "pol_pogon_siedlce", "pol_posnania", "pol_skra", "por_aac", "por_agronomia", "por_belenenses", "por_benfica", "por_cascais", "por_cdul", "por_cdup", "por_direito", "por_lousa", "por_saomiguel", "por_top10", "pro_agen", "pro_angouleme", "pro_aviron", "pro_beziers", "pro_biarritz", "pro_bourrg_en_bresse", "pro_carcassonne", "pro_colomiers", "pro_grenoble", "pro_landes", "pro_massy", "pro_montaunban", "pro_mont_de_marsan", "pro_narbonne", "pro_nevers", "pro_oyonnax", "pro_provence", "pro_rouen", "pro_sa_vx_charente", "pro_stade_aurillacois", "pro_stade_nicois", "pro_valence", "pro_vannes", "rep_afghanistan", "rep_albania", "rep_algeria", "rep_andorra", "rep_angola", "rep_antigua", "rep_argentina", "rep_armenia", "rep_australia", "rep_austria", "rep_azerbaijan", "rep_bahamas", "rep_bahrain", "rep_bangladesh", "rep_barbados", "rep_belarus", "rep_belgium", "rep_belguim", "rep_belize", "rep_benin", "rep_bhutan", "rep_bigant", "rep_bigant_female", "rep_bigant_male", "rep_bolivia", "rep_bosnia", "rep_botswana", "rep_brazil", "rep_brunei", "rep_bulgaria", "rep_burkinafaso", "rep_burundi", "rep_cambodia", "rep_cameroon", "rep_canada", "rep_capeverde", "rep_car", "rep_chad", "rep_chile", "rep_china", "rep_columbia", "rep_comoros", "rep_congo", "rep_cookislands", "rep_costarica", "rep_croatia", "rep_cuba", "rep_cyprus", "rep_czechia", "rep_czechrep", "rep_denmark", "rep_djibouti", "rep_dominica", "rep_dominican_republic", "rep_drc", "rep_east_timor", "rep_ecuador", "rep_egypt", "rep_el_salvador", "rep_england", "rep_eq_guinea", "rep_eritrea", "rep_estonia", "rep_eswatini", "rep_ethiopia", "rep_fiji", "rep_finland", "rep_france", "rep_gabon", "rep_gambia", "rep_georgia", "rep_germany", "rep_ghana", "rep_great_britain", "rep_greece", "rep_grenada", "rep_guatemala", "rep_guinea", "rep_guinea_bissau", "rep_guyana", "rep_haiti", "rep_holland", "rep_honduras", "rep_hong_kong", "rep_hungary", "rep_iceland", "rep_india", "rep_indonesia", "rep_iran", "rep_iraq", "rep_ireland", "rep_israel", "rep_italy", "rep_ivorycoast", "rep_jamaica", "rep_japan", "rep_jordan", "rep_kazakhstan", "rep_kenya", "rep_kiribati", "rep_kosovo", "rep_kuwait", "rep_kyrgyzstan", "rep_laos", "rep_latvia", "rep_lebanon", "rep_lesotho", "rep_liberia", "rep_libya", "rep_liechtenstein", "rep_lithuania", "rep_luxembourg", "rep_macedonia", "rep_madagascar", "rep_malawi", "rep_malaysia", "rep_maldives", "rep_mali", "rep_malta", "rep_marshall_islands", "rep_mauritania", "rep_mauritius", "rep_mexico", "rep_micronesia", "rep_moldova", "rep_monaco", "rep_mongolia", "rep_montenegro", "rep_morocco", "rep_mozambique", "rep_myanmar", "rep_namibia", "rep_nauru", "rep_nepal", "rep_netherlands", "rep_new_zealand", "rep_nicaragua", "rep_niger", "rep_nigeria", "rep_norway", "rep_nz", "rep_oman", "rep_pakistan", "rep_palau", "rep_panama", "rep_paraguay", "rep_peru", "rep_philippines", "rep_png", "rep_poland", "rep_portugal", "rep_qatar", "rep_romania", "rep_russia", "rep_rwanda", "rep_saintkittsandnevis", "rep_saintlucia", "rep_saintvincentandthegrenadines", "rep_samoa", "rep_sanmarino", "rep_saotome", "rep_saudiarabia", "rep_scotland", "rep_senegal", "rep_serbia", "rep_seychelles", "rep_sierra_leone", "rep_singapore", "rep_slovakia", "rep_slovenia", "rep_solomonislands", "rep_somalia", "rep_southafrica", "rep_southkorea", "rep_south_africa", "rep_south_sudan", "rep_spain", "rep_srilanka", "rep_sudan", "rep_suriname", "rep_sweden", "rep_switzerland", "rep_syria", "rep_tajikistan", "rep_tanzania", "rep_thailand", "rep_togo", "rep_tonga", "rep_trinidad", "rep_tunisia", "rep_turkey", "rep_turkmenistan", "rep_tuvalu", "rep_uganda", "rep_ukraine", "rep_united_arab_emirates", "rep_united_states", "rep_uraguay", "rep_usa", "rep_uzbekistan", "rep_vanuatu", "rep_venezuela", "rep_vietnam", "rep_wales", "rep_yemen", "rep_zambia", "rep_zimbabwe", "rom_alba_iulia", "rom_baia_mare", "rom_barlad", "rom_bucharest_students", "rom_constanta", "rom_dinamo", "rom_galati", "rom_grivita", "rom_gura_humorului", "rom_iasi", "rom_navodari", "rom_rapid", "rom_stiinta", "rom_suceava", "rom_timisoara", "rom_universitatea_cluj", "rwanda_hippos", "rwanda_okapis", "sr_blues", "sr_brumbies", "sr_chiefs", "sr_crusaders", "sr_fijian_drua", "sr_highlanders", "sr_hurricanes", "sr_moana", "sr_rebels", "sr_reds", "sr_warratahs", "sr_western_force", "top14_bayonne", "top14_bordeaux_begles", "top14_brive", "top14_castres", "top14_clermont", "top14_larochelle", "top14_lyon", "top14_montpellier", "top14_pau", "top14_perpigan", "top14_racing", "top14_stade_francais", "top14_toulon", "top14_toulous", "urc_benetton", "urc_bulls", "urc_cardiff", "urc_connacht", "urc_dragons", "urc_edinburgh", "urc_glasgow_warriors", "urc_leinster", "urc_lions", "urc_munster", "urc_ospreys", "urc_sale_sharks", "urc_scarletts", "urc_sharks", "urc_sharks2", "urc_stormers", "urc_ulster", "urc_zebre" });
-            Logo_comboBox.Location = new Point(135, 363);
+            Logo_comboBox.Location = new Point(135, 334);
             Logo_comboBox.Name = "Logo_comboBox";
             Logo_comboBox.Size = new Size(253, 23);
             Logo_comboBox.TabIndex = 11;
@@ -1078,7 +1099,7 @@ namespace R25_Database_Editor
             // Logo_label
             // 
             Logo_label.AutoSize = true;
-            Logo_label.Location = new Point(96, 367);
+            Logo_label.Location = new Point(96, 338);
             Logo_label.Name = "Logo_label";
             Logo_label.Size = new Size(37, 15);
             Logo_label.TabIndex = 10;
@@ -1087,7 +1108,7 @@ namespace R25_Database_Editor
             // TeamIndex_label
             // 
             TeamIndex_label.AutoSize = true;
-            TeamIndex_label.Location = new Point(95, 58);
+            TeamIndex_label.Location = new Point(95, 29);
             TeamIndex_label.Name = "TeamIndex_label";
             TeamIndex_label.Size = new Size(38, 15);
             TeamIndex_label.TabIndex = 6;
@@ -1096,7 +1117,7 @@ namespace R25_Database_Editor
             // hudName_label
             // 
             hudName_label.AutoSize = true;
-            hudName_label.Location = new Point(64, 243);
+            hudName_label.Location = new Point(64, 214);
             hudName_label.Name = "hudName_label";
             hudName_label.Size = new Size(68, 15);
             hudName_label.TabIndex = 4;
@@ -1105,7 +1126,7 @@ namespace R25_Database_Editor
             // shortName_label
             // 
             shortName_label.AutoSize = true;
-            shortName_label.Location = new Point(59, 182);
+            shortName_label.Location = new Point(59, 153);
             shortName_label.Name = "shortName_label";
             shortName_label.Size = new Size(73, 15);
             shortName_label.TabIndex = 2;
@@ -1114,7 +1135,7 @@ namespace R25_Database_Editor
             // Fullname_label
             // 
             Fullname_label.AutoSize = true;
-            Fullname_label.Location = new Point(68, 151);
+            Fullname_label.Location = new Point(68, 122);
             Fullname_label.Name = "Fullname_label";
             Fullname_label.Size = new Size(64, 15);
             Fullname_label.TabIndex = 0;
@@ -1300,5 +1321,7 @@ namespace R25_Database_Editor
         private Label shortName_label;
         private Label Fullname_label;
         private TabControl Team_tabControl;
+        private ComboBox WorldCupLogo_comboBox;
+        private Label WorldCupLogo_label;
     }
 }

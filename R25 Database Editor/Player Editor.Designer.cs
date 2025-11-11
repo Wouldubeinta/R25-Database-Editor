@@ -224,6 +224,8 @@ namespace R25_Database_Editor
             PlayerSaveChangers_button = new Button();
             ofdpa = new OpenFileDialog();
             sfdpa = new SaveFileDialog();
+            BonusTries_label = new Label();
+            BonusTries_numericUpDown = new NumericUpDown();
             tabControl1.SuspendLayout();
             PlayerIdentity_tabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Weight_numericUpDown).BeginInit();
@@ -302,6 +304,7 @@ namespace R25_Database_Editor
             ((System.ComponentModel.ISupportInitialize)MatchesWon_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BallStrips_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Conversions_numericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BonusTries_numericUpDown).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -1534,6 +1537,8 @@ namespace R25_Database_Editor
             // 
             // UnionMatchStats_groupBox
             // 
+            UnionMatchStats_groupBox.Controls.Add(BonusTries_label);
+            UnionMatchStats_groupBox.Controls.Add(BonusTries_numericUpDown);
             UnionMatchStats_groupBox.Controls.Add(TryAssists_label);
             UnionMatchStats_groupBox.Controls.Add(Tries_label);
             UnionMatchStats_groupBox.Controls.Add(TryAssists_numericUpDown);
@@ -1602,7 +1607,7 @@ namespace R25_Database_Editor
             UnionMatchStats_groupBox.Controls.Add(Conversions_numericUpDown);
             UnionMatchStats_groupBox.Location = new Point(214, 54);
             UnionMatchStats_groupBox.Name = "UnionMatchStats_groupBox";
-            UnionMatchStats_groupBox.Size = new Size(277, 1117);
+            UnionMatchStats_groupBox.Size = new Size(277, 1057);
             UnionMatchStats_groupBox.TabIndex = 2;
             UnionMatchStats_groupBox.TabStop = false;
             UnionMatchStats_groupBox.Text = "Union Match Stats";
@@ -2197,6 +2202,23 @@ namespace R25_Database_Editor
             sfdpa.DefaultExt = "pla";
             sfdpa.Filter = "RLL4 PLA file|*.PLA";
             // 
+            // BonusTries_label
+            // 
+            BonusTries_label.AutoSize = true;
+            BonusTries_label.Location = new Point(88, 1026);
+            BonusTries_label.Name = "BonusTries_label";
+            BonusTries_label.Size = new Size(70, 15);
+            BonusTries_label.TabIndex = 127;
+            BonusTries_label.Text = "Bonus Tries:";
+            // 
+            // BonusTries_numericUpDown
+            // 
+            BonusTries_numericUpDown.Location = new Point(161, 1022);
+            BonusTries_numericUpDown.Maximum = new decimal(new int[] { 50000, 0, 0, 0 });
+            BonusTries_numericUpDown.Name = "BonusTries_numericUpDown";
+            BonusTries_numericUpDown.Size = new Size(56, 23);
+            BonusTries_numericUpDown.TabIndex = 128;
+            // 
             // Player_Editor
             // 
             AutoScroll = true;
@@ -2296,6 +2318,7 @@ namespace R25_Database_Editor
             ((System.ComponentModel.ISupportInitialize)MatchesWon_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)BallStrips_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)Conversions_numericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BonusTries_numericUpDown).EndInit();
             ResumeLayout(false);
 
         }
@@ -2497,5 +2520,7 @@ namespace R25_Database_Editor
         private Label ToePoke_label;
         private ComboBox ConversionStyle_comboBox;
         private Label ConversionStyle_label;
+        private Label BonusTries_label;
+        private NumericUpDown BonusTries_numericUpDown;
     }
 }
