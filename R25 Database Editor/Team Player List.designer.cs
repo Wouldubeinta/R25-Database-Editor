@@ -37,6 +37,8 @@
             toolStripTextBox1 = new ToolStripTextBox();
             searchToolStripMenuItem = new ToolStripMenuItem();
             Gender_toolStripComboBox = new ToolStripComboBox();
+            CountryOfBirth_toolStripComboBox = new ToolStripComboBox();
+            Roles_toolStripComboBox = new ToolStripComboBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
             refreshPlayersToolStripMenuItem = new ToolStripMenuItem();
             tabControl1.SuspendLayout();
@@ -93,7 +95,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripTextBox1, searchToolStripMenuItem, Gender_toolStripComboBox });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripTextBox1, searchToolStripMenuItem, Gender_toolStripComboBox, CountryOfBirth_toolStripComboBox, Roles_toolStripComboBox });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 2, 0, 2);
@@ -123,6 +125,21 @@
             Gender_toolStripComboBox.Name = "Gender_toolStripComboBox";
             Gender_toolStripComboBox.Size = new Size(140, 23);
             Gender_toolStripComboBox.SelectedIndexChanged += Gender_toolStripComboBox_SelectedIndexChanged;
+            // 
+            // CountryOfBirth_toolStripComboBox
+            // 
+            CountryOfBirth_toolStripComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            CountryOfBirth_toolStripComboBox.Name = "CountryOfBirth_toolStripComboBox";
+            CountryOfBirth_toolStripComboBox.Size = new Size(121, 23);
+            CountryOfBirth_toolStripComboBox.SelectedIndexChanged += CountryOfBirth_toolStripComboBox_SelectedIndexChanged;
+            // 
+            // Roles_toolStripComboBox
+            // 
+            Roles_toolStripComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            Roles_toolStripComboBox.Items.AddRange(new object[] { "All Roles" });
+            Roles_toolStripComboBox.Name = "Roles_toolStripComboBox";
+            Roles_toolStripComboBox.Size = new Size(121, 23);
+            Roles_toolStripComboBox.SelectedIndexChanged += Roles_toolStripComboBox_SelectedIndexChanged;
             // 
             // contextMenuStrip1
             // 
@@ -172,5 +189,7 @@
         private System.Windows.Forms.ToolStripComboBox Gender_toolStripComboBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem refreshPlayersToolStripMenuItem;
+        private ToolStripComboBox CountryOfBirth_toolStripComboBox;
+        private ToolStripComboBox Roles_toolStripComboBox;
     }
 }

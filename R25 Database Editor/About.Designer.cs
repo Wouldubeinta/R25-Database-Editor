@@ -152,7 +152,7 @@
             changelog_richTextBox.ReadOnly = true;
             changelog_richTextBox.Size = new Size(587, 242);
             changelog_richTextBox.TabIndex = 0;
-            changelog_richTextBox.Text = "-1.0.0.2-\n* Initial Release";
+            changelog_richTextBox.Text = "-1.0.0.3-\n* Updated the team and player databases from game update v1.0.4016.\n\n-1.0.0.2-\n* Initial Release";
             changelog_richTextBox.WordWrap = false;
             // 
             // title_pictureBox
