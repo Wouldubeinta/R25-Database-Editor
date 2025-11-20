@@ -17,7 +17,6 @@ namespace R25_Database_Editor
 
         private void Team_Player_List_Load(object sender, EventArgs e)
         {
-            Gender_toolStripComboBox.SelectedIndex = 2;
             CountryOfBirth_toolStripComboBox.Items.AddRange(StringArrays.CountryOfBirth);
             CountryOfBirth_toolStripComboBox.Items.Add("All Countries");
             Roles_toolStripComboBox.Items.AddRange(StringArrays.UnionRoles);
@@ -46,7 +45,7 @@ namespace R25_Database_Editor
 
                 for (int i = 0; i < Global.player_amount; i++)
                 {
-                    bool isGenderMatch = Global.player[i].gender == Gender_toolStripComboBox.SelectedIndex;
+                    bool isGenderMatch = Global.player[i].gender == Global.team[TeamIndex].gender;
                     bool isCountryMatch = Global.player[i].countryOfBirth == CountryOfBirth_toolStripComboBox.SelectedIndex;
                     bool isAllCountries = CountryOfBirth_toolStripComboBox.SelectedIndex == 159; // 159 is the CountryOfBirth array count
                     bool isRoleMatch = Global.player[i].primaryRole == SearchID.RolesIndex(Roles_toolStripComboBox.Text);
@@ -54,15 +53,6 @@ namespace R25_Database_Editor
 
                     // Check for matches based on gender, country and roles
                     if (isGenderMatch && (isCountryMatch || isAllCountries))
-                    {
-                        if (isRoleMatch || isAllRoles)
-                        {
-                            index++;
-                            DataTableRows(i, index, dt);
-                        }
-                    }
-                    // Check for matches when gender is set to a specific value (e.g., 2)
-                    else if (Gender_toolStripComboBox.SelectedIndex == 2 && (isCountryMatch || isAllCountries))
                     {
                         if (isRoleMatch || isAllRoles)
                         {
@@ -161,11 +151,6 @@ namespace R25_Database_Editor
                     e = new KeyEventArgs(Keys.Tab);
                 base.OnKeyDown(e);
             }
-        }
-
-        private void Gender_toolStripComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            OriginalPlayers();
         }
 
         private void CountryOfBirth_toolStripComboBox_SelectedIndexChanged(object sender, EventArgs e)

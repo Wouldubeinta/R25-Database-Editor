@@ -36,7 +36,6 @@
             menuStrip1 = new MenuStrip();
             toolStripTextBox1 = new ToolStripTextBox();
             searchToolStripMenuItem = new ToolStripMenuItem();
-            Gender_toolStripComboBox = new ToolStripComboBox();
             CountryOfBirth_toolStripComboBox = new ToolStripComboBox();
             Roles_toolStripComboBox = new ToolStripComboBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
@@ -95,7 +94,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripTextBox1, searchToolStripMenuItem, Gender_toolStripComboBox, CountryOfBirth_toolStripComboBox, Roles_toolStripComboBox });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripTextBox1, searchToolStripMenuItem, CountryOfBirth_toolStripComboBox, Roles_toolStripComboBox });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 2, 0, 2);
@@ -117,14 +116,6 @@
             searchToolStripMenuItem.Size = new Size(89, 23);
             searchToolStripMenuItem.Text = "Search Player";
             searchToolStripMenuItem.Click += searchToolStripMenuItem_Click;
-            // 
-            // Gender_toolStripComboBox
-            // 
-            Gender_toolStripComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            Gender_toolStripComboBox.Items.AddRange(new object[] { "Male Players", "Female Players", "All Players" });
-            Gender_toolStripComboBox.Name = "Gender_toolStripComboBox";
-            Gender_toolStripComboBox.Size = new Size(140, 23);
-            Gender_toolStripComboBox.SelectedIndexChanged += Gender_toolStripComboBox_SelectedIndexChanged;
             // 
             // CountryOfBirth_toolStripComboBox
             // 
@@ -186,7 +177,6 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private MyDataGridView dataGridView;
-        private System.Windows.Forms.ToolStripComboBox Gender_toolStripComboBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem refreshPlayersToolStripMenuItem;
         private ToolStripComboBox CountryOfBirth_toolStripComboBox;
