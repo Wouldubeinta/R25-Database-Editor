@@ -237,6 +237,20 @@ IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY C
 17. Interpretation of Sections 15 and 16.
 If the disclaimer of warranty and limitation of liability provided above cannot be given local legal effect according to their terms, reviewing courts shall apply local law that most closely approximates an absolute waiver of all civil liability in connection with the Program, unless a warranty or assumption of liability accompanies a copy of the Program in return for a fee.</value>
   </data>
+  <data name="changelog_richTextBox.Text" xml:space="preserve">
+    <value>-1.0.0.5-
+* Added latest team and player database from - v1.0.4206
+* Changed the player data of birth in the Player Editor.
+* Added player age to Player Editor. It get's updated automatically.
+* Added team and player count in mainform.
+
+-1.0.0.3-
+* Updated the team and player databases from game update v1.0.4016.
+* Made some changers to Player List in Team Editor.
+
+-1.0.0.2-
+* Initial Release</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

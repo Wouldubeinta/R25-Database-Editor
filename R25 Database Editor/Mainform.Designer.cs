@@ -226,8 +226,9 @@
             // toolStripStatusLabel2
             // 
             toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            toolStripStatusLabel2.Size = new Size(1018, 19);
+            toolStripStatusLabel2.Size = new Size(987, 19);
             toolStripStatusLabel2.Spring = true;
+            toolStripStatusLabel2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // ProgressLabel
             // 

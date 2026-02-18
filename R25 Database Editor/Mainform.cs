@@ -46,6 +46,7 @@ namespace R25_Database_Editor
         {
             ReadDatabase.Defaultdata_Clubs(Global.currentPath + @"\defaultdata\defaultdata_clubs", Teams_dataGridView);
             ReadDatabase.Defaultdata_Players(Global.currentPath + @"\defaultdata\defaultdata_players", Players_dataGridView);
+            toolStripStatusLabel2.Text = $"Team Count - {Global.team_amount} | Player Count - {Global.player_amount}";
         }
 
         private void SaveDatabase_ToolStripMenuItem_Click(object sender, EventArgs e)

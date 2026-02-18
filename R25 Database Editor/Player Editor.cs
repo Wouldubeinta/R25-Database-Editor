@@ -54,9 +54,8 @@ namespace R25_Database_Editor
                 PlayerGenderImage_label.Image = Properties.Resources.Female;
             }
 
-            Day_numericUpDown.Value = Global.player[Player_Index].dob.day;
-            Month_numericUpDown.Value = Global.player[Player_Index].dob.month;
-            Year_numericUpDown.Value = Global.player[Player_Index].dob.year;
+            DateTime dateOfBirth = new DateTime(Convert.ToInt32(Global.player[Player_Index].dob.year), Convert.ToInt32(Global.player[Player_Index].dob.month), Convert.ToInt32(Global.player[Player_Index].dob.day));
+            dateTimePicker1.Value = dateOfBirth;
 
             if (Global.player[Player_Index].jerseyNumber < 1 || Global.player[Player_Index].jerseyNumber > 99)
                 JerseyNumber_numericUpDown.Value = 1;
@@ -208,22 +207,11 @@ namespace R25_Database_Editor
 
             Global.player[Player_Index].jerseyNumber = Convert.ToInt32(JerseyNumber_numericUpDown.Value);
 
-            Global.player[Player_Index].dob.day = Convert.ToInt32(Day_numericUpDown.Value);
-            Global.player[Player_Index].dob.month = Convert.ToInt32(Month_numericUpDown.Value);
-            Global.player[Player_Index].dob.year = Convert.ToInt32(Year_numericUpDown.Value);
+            Global.player[Player_Index].dob.day = Convert.ToInt32(dateTimePicker1.Value.Day);
+            Global.player[Player_Index].dob.month = Convert.ToInt32(dateTimePicker1.Value.Month);
+            Global.player[Player_Index].dob.year = Convert.ToInt32(dateTimePicker1.Value.Year);
 
             Global.player[Player_Index].isAge = true;
-
-            DateTime dateOfBirth = new DateTime(Convert.ToInt32(Year_numericUpDown.Value), Convert.ToInt32(Month_numericUpDown.Value), Convert.ToInt32(Day_numericUpDown.Value));
-
-            DateTime today = DateTime.Today;
-            int age = today.Year - dateOfBirth.Year;
-
-            // Adjust age if the birthday has not yet occurred this year
-            if (dateOfBirth.Date > today.AddYears(-age))
-                age--;
-
-            Global.player[Player_Index].age = age;
 
             Global.player[Player_Index].isCountryOfBirth = true;
             Global.player[Player_Index].countryOfBirth = CountryOfBirth_comboBox.SelectedIndex;
@@ -828,6 +816,19 @@ namespace R25_Database_Editor
                     Discipline_numericUpDown.Value = RandomizeStats(80, 95);
                 }
             }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            int age = today.Year - dateTimePicker1.Value.Year;
+
+            // Adjust age if the birthday has not yet occurred this year
+            if (dateTimePicker1.Value.Date > today.AddYears(-age))
+                age--;
+
+            AgeValue_label.Text = age.ToString();
+            Global.player[Player_Index].age = age;
         }
     }
 }

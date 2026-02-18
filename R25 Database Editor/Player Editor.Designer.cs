@@ -31,6 +31,9 @@ namespace R25_Database_Editor
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Player_Editor));
             tabControl1 = new TabControl();
             PlayerIdentity_tabPage = new TabPage();
+            AgeValue_label = new Label();
+            Age_label = new Label();
+            dateTimePicker1 = new DateTimePicker();
             PhotogrammetryStatus_label = new Label();
             PhotogrammetryStatus_comboBox = new ComboBox();
             commentaryNameHash_comboBox = new ComboBox();
@@ -67,12 +70,6 @@ namespace R25_Database_Editor
             PrimaryRole_label = new Label();
             JerseyNumber_numericUpDown = new NumericUpDown();
             JerseyNumber_label = new Label();
-            Year_numericUpDown = new NumericUpDown();
-            Year_label = new Label();
-            Month_numericUpDown = new NumericUpDown();
-            Month_label = new Label();
-            Day_label = new Label();
-            Day_numericUpDown = new NumericUpDown();
             DOB_label = new Label();
             LastName_textBox = new TextBox();
             LastName_label = new Label();
@@ -154,6 +151,8 @@ namespace R25_Database_Editor
             PlayerCareerStats_tabPage = new TabPage();
             UnionMatchEnabled_checkBox = new CheckBox();
             UnionMatchStats_groupBox = new GroupBox();
+            BonusTries_label = new Label();
+            BonusTries_numericUpDown = new NumericUpDown();
             TryAssists_label = new Label();
             Tries_label = new Label();
             TryAssists_numericUpDown = new NumericUpDown();
@@ -224,16 +223,11 @@ namespace R25_Database_Editor
             PlayerSaveChangers_button = new Button();
             ofdpa = new OpenFileDialog();
             sfdpa = new SaveFileDialog();
-            BonusTries_label = new Label();
-            BonusTries_numericUpDown = new NumericUpDown();
             tabControl1.SuspendLayout();
             PlayerIdentity_tabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Weight_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Height_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)JerseyNumber_numericUpDown).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Year_numericUpDown).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Month_numericUpDown).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Day_numericUpDown).BeginInit();
             PlayerAttributes_tabPage.SuspendLayout();
             RandomizeStats_groupBox.SuspendLayout();
             Attributes_groupBox.SuspendLayout();
@@ -271,6 +265,7 @@ namespace R25_Database_Editor
             ((System.ComponentModel.ISupportInitialize)BreakTackle_numericUpDown).BeginInit();
             PlayerCareerStats_tabPage.SuspendLayout();
             UnionMatchStats_groupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)BonusTries_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TryAssists_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Tries_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Tackles_numericUpDown).BeginInit();
@@ -304,7 +299,6 @@ namespace R25_Database_Editor
             ((System.ComponentModel.ISupportInitialize)MatchesWon_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BallStrips_numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Conversions_numericUpDown).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)BonusTries_numericUpDown).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -321,6 +315,9 @@ namespace R25_Database_Editor
             // 
             // PlayerIdentity_tabPage
             // 
+            PlayerIdentity_tabPage.Controls.Add(AgeValue_label);
+            PlayerIdentity_tabPage.Controls.Add(Age_label);
+            PlayerIdentity_tabPage.Controls.Add(dateTimePicker1);
             PlayerIdentity_tabPage.Controls.Add(PhotogrammetryStatus_label);
             PlayerIdentity_tabPage.Controls.Add(PhotogrammetryStatus_comboBox);
             PlayerIdentity_tabPage.Controls.Add(commentaryNameHash_comboBox);
@@ -357,12 +354,6 @@ namespace R25_Database_Editor
             PlayerIdentity_tabPage.Controls.Add(PrimaryRole_label);
             PlayerIdentity_tabPage.Controls.Add(JerseyNumber_numericUpDown);
             PlayerIdentity_tabPage.Controls.Add(JerseyNumber_label);
-            PlayerIdentity_tabPage.Controls.Add(Year_numericUpDown);
-            PlayerIdentity_tabPage.Controls.Add(Year_label);
-            PlayerIdentity_tabPage.Controls.Add(Month_numericUpDown);
-            PlayerIdentity_tabPage.Controls.Add(Month_label);
-            PlayerIdentity_tabPage.Controls.Add(Day_label);
-            PlayerIdentity_tabPage.Controls.Add(Day_numericUpDown);
             PlayerIdentity_tabPage.Controls.Add(DOB_label);
             PlayerIdentity_tabPage.Controls.Add(LastName_textBox);
             PlayerIdentity_tabPage.Controls.Add(LastName_label);
@@ -379,6 +370,32 @@ namespace R25_Database_Editor
             PlayerIdentity_tabPage.TabIndex = 0;
             PlayerIdentity_tabPage.Text = "Player Identity";
             PlayerIdentity_tabPage.UseVisualStyleBackColor = true;
+            // 
+            // AgeValue_label
+            // 
+            AgeValue_label.AutoSize = true;
+            AgeValue_label.Location = new Point(370, 258);
+            AgeValue_label.Name = "AgeValue_label";
+            AgeValue_label.Size = new Size(19, 15);
+            AgeValue_label.TabIndex = 169;
+            AgeValue_label.Text = "18";
+            // 
+            // Age_label
+            // 
+            Age_label.AutoSize = true;
+            Age_label.Location = new Point(340, 258);
+            Age_label.Name = "Age_label";
+            Age_label.Size = new Size(31, 15);
+            Age_label.TabIndex = 168;
+            Age_label.Text = "Age:";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(120, 253);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(217, 23);
+            dateTimePicker1.TabIndex = 167;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // PhotogrammetryStatus_label
             // 
@@ -709,67 +726,10 @@ namespace R25_Database_Editor
             JerseyNumber_label.TabIndex = 33;
             JerseyNumber_label.Text = "Jersey Number:";
             // 
-            // Year_numericUpDown
-            // 
-            Year_numericUpDown.Location = new Point(315, 253);
-            Year_numericUpDown.Maximum = new decimal(new int[] { 2500, 0, 0, 0 });
-            Year_numericUpDown.Minimum = new decimal(new int[] { 1900, 0, 0, 0 });
-            Year_numericUpDown.Name = "Year_numericUpDown";
-            Year_numericUpDown.Size = new Size(49, 23);
-            Year_numericUpDown.TabIndex = 32;
-            Year_numericUpDown.Value = new decimal(new int[] { 2500, 0, 0, 0 });
-            // 
-            // Year_label
-            // 
-            Year_label.AutoSize = true;
-            Year_label.Location = new Point(275, 257);
-            Year_label.Name = "Year_label";
-            Year_label.Size = new Size(37, 15);
-            Year_label.TabIndex = 31;
-            Year_label.Text = "Year -";
-            // 
-            // Month_numericUpDown
-            // 
-            Month_numericUpDown.Location = new Point(227, 253);
-            Month_numericUpDown.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
-            Month_numericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            Month_numericUpDown.Name = "Month_numericUpDown";
-            Month_numericUpDown.Size = new Size(35, 23);
-            Month_numericUpDown.TabIndex = 30;
-            Month_numericUpDown.Value = new decimal(new int[] { 12, 0, 0, 0 });
-            // 
-            // Month_label
-            // 
-            Month_label.AutoSize = true;
-            Month_label.Location = new Point(173, 257);
-            Month_label.Name = "Month_label";
-            Month_label.Size = new Size(51, 15);
-            Month_label.TabIndex = 29;
-            Month_label.Text = "Month -";
-            // 
-            // Day_label
-            // 
-            Day_label.AutoSize = true;
-            Day_label.Location = new Point(82, 257);
-            Day_label.Name = "Day_label";
-            Day_label.Size = new Size(35, 15);
-            Day_label.TabIndex = 28;
-            Day_label.Text = "Day -";
-            // 
-            // Day_numericUpDown
-            // 
-            Day_numericUpDown.Location = new Point(120, 253);
-            Day_numericUpDown.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            Day_numericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            Day_numericUpDown.Name = "Day_numericUpDown";
-            Day_numericUpDown.Size = new Size(35, 23);
-            Day_numericUpDown.TabIndex = 27;
-            Day_numericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
             // DOB_label
             // 
             DOB_label.AutoSize = true;
-            DOB_label.Location = new Point(43, 257);
+            DOB_label.Location = new Point(83, 257);
             DOB_label.Name = "DOB_label";
             DOB_label.Size = new Size(34, 15);
             DOB_label.TabIndex = 26;
@@ -1612,6 +1572,23 @@ namespace R25_Database_Editor
             UnionMatchStats_groupBox.TabStop = false;
             UnionMatchStats_groupBox.Text = "Union Match Stats";
             // 
+            // BonusTries_label
+            // 
+            BonusTries_label.AutoSize = true;
+            BonusTries_label.Location = new Point(88, 1026);
+            BonusTries_label.Name = "BonusTries_label";
+            BonusTries_label.Size = new Size(70, 15);
+            BonusTries_label.TabIndex = 127;
+            BonusTries_label.Text = "Bonus Tries:";
+            // 
+            // BonusTries_numericUpDown
+            // 
+            BonusTries_numericUpDown.Location = new Point(161, 1022);
+            BonusTries_numericUpDown.Maximum = new decimal(new int[] { 50000, 0, 0, 0 });
+            BonusTries_numericUpDown.Name = "BonusTries_numericUpDown";
+            BonusTries_numericUpDown.Size = new Size(56, 23);
+            BonusTries_numericUpDown.TabIndex = 128;
+            // 
             // TryAssists_label
             // 
             TryAssists_label.AutoSize = true;
@@ -2202,23 +2179,6 @@ namespace R25_Database_Editor
             sfdpa.DefaultExt = "pla";
             sfdpa.Filter = "RLL4 PLA file|*.PLA";
             // 
-            // BonusTries_label
-            // 
-            BonusTries_label.AutoSize = true;
-            BonusTries_label.Location = new Point(88, 1026);
-            BonusTries_label.Name = "BonusTries_label";
-            BonusTries_label.Size = new Size(70, 15);
-            BonusTries_label.TabIndex = 127;
-            BonusTries_label.Text = "Bonus Tries:";
-            // 
-            // BonusTries_numericUpDown
-            // 
-            BonusTries_numericUpDown.Location = new Point(161, 1022);
-            BonusTries_numericUpDown.Maximum = new decimal(new int[] { 50000, 0, 0, 0 });
-            BonusTries_numericUpDown.Name = "BonusTries_numericUpDown";
-            BonusTries_numericUpDown.Size = new Size(56, 23);
-            BonusTries_numericUpDown.TabIndex = 128;
-            // 
             // Player_Editor
             // 
             AutoScroll = true;
@@ -2237,9 +2197,6 @@ namespace R25_Database_Editor
             ((System.ComponentModel.ISupportInitialize)Weight_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)Height_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)JerseyNumber_numericUpDown).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Year_numericUpDown).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Month_numericUpDown).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Day_numericUpDown).EndInit();
             PlayerAttributes_tabPage.ResumeLayout(false);
             RandomizeStats_groupBox.ResumeLayout(false);
             Attributes_groupBox.ResumeLayout(false);
@@ -2285,6 +2242,7 @@ namespace R25_Database_Editor
             PlayerCareerStats_tabPage.PerformLayout();
             UnionMatchStats_groupBox.ResumeLayout(false);
             UnionMatchStats_groupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)BonusTries_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)TryAssists_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)Tries_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)Tackles_numericUpDown).EndInit();
@@ -2318,7 +2276,6 @@ namespace R25_Database_Editor
             ((System.ComponentModel.ISupportInitialize)MatchesWon_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)BallStrips_numericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)Conversions_numericUpDown).EndInit();
-            ((System.ComponentModel.ISupportInitialize)BonusTries_numericUpDown).EndInit();
             ResumeLayout(false);
 
         }
@@ -2330,12 +2287,6 @@ namespace R25_Database_Editor
         private System.Windows.Forms.TabPage PlayerAttributes_tabPage;
         private System.Windows.Forms.NumericUpDown JerseyNumber_numericUpDown;
         private System.Windows.Forms.Label JerseyNumber_label;
-        private System.Windows.Forms.NumericUpDown Year_numericUpDown;
-        private System.Windows.Forms.Label Year_label;
-        private System.Windows.Forms.NumericUpDown Month_numericUpDown;
-        private System.Windows.Forms.Label Month_label;
-        private System.Windows.Forms.Label Day_label;
-        private System.Windows.Forms.NumericUpDown Day_numericUpDown;
         private System.Windows.Forms.Label DOB_label;
         private System.Windows.Forms.TextBox LastName_textBox;
         private System.Windows.Forms.Label LastName_label;
@@ -2522,5 +2473,8 @@ namespace R25_Database_Editor
         private Label ConversionStyle_label;
         private Label BonusTries_label;
         private NumericUpDown BonusTries_numericUpDown;
+        private Label AgeValue_label;
+        private Label Age_label;
+        private DateTimePicker dateTimePicker1;
     }
 }
